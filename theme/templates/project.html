@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block body_class %}project-page{% endblock %}
+{% block content %}
+<article>
+  <header class="shell project-hero">
+    <a class="back-link" href="{{ SITEURL }}/work/"><span aria-hidden="true">←</span> All work</a>
+    <div class="project-title-row">
+      <div><p class="eyebrow">{{ page.category }}</p><h1>{{ page.title }}</h1></div>
+      <span class="project-number">{{ "%02d"|format(page.featured_order|int) }}</span>
+    </div>
+    <p class="project-summary">{{ page.summary }}</p>
+    <dl class="project-facts">
+      <div><dt>Role</dt><dd>{{ page.role }}</dd></div>
+      <div><dt>Type</dt><dd>{{ page.category }}</dd></div>
+      <div><dt>Status</dt><dd>{{ page.project_status }}</dd></div>
+    </dl>
+  </header>
+  <div class="shell project-body">
+    <aside>
+      <p>Areas</p>
+      <ul>{% for area in page.product_areas %}<li>{{ area }}</li>{% endfor %}</ul>
+    </aside>
+    <div class="prose">{{ page.content|safe }}</div>
+  </div>
+</article>
+{% endblock %}
+

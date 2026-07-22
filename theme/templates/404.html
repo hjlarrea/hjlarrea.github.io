@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block title %}Page not found — {{ SITENAME }}{% endblock %}
+{% block content %}
+<section class="shell not-found">
+  <p class="eyebrow">404 · Page not found</p>
+  <h1>This path doesn’t lead anywhere.</h1>
+  <p>The page may have moved, or the address may be incomplete.</p>
+  <a class="button button-primary" href="{{ SITEURL }}/">Return home <span aria-hidden="true">→</span></a>
+</section>
+{% endblock %}
+

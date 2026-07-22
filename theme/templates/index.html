@@ -1,0 +1,121 @@
+{% extends "base.html" %}
+{% block body_class %}home{% endblock %}
+{% block head %}
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Hernán Larrea",
+    "url": "https://larrea.com.ar",
+    "jobTitle": "Technical Product Manager",
+    "sameAs": [
+      "https://github.com/hjlarrea",
+      "https://linkedin.com/in/hjlarrea",
+      "https://cololabs.com.ar"
+    ]
+  }
+  </script>
+{% endblock %}
+{% block content %}
+<section class="hero shell">
+  <div class="hero-topline">
+    <div class="hero-kicker"><span></span> Technical product manager · Buenos Aires</div>
+    <img class="hero-logo" src="{{ SITEURL }}/images/logo.png" alt="Larrea">
+  </div>
+  <h1>I build products and platforms that make complex technology <em>easier to use.</em></h1>
+  <div class="hero-bottom">
+    <p>I’m Hernán J. Larrea, a Technical Product Manager with a hands-on background in infrastructure, platform engineering and developer experience.</p>
+    <div class="actions">
+      <a class="button button-primary" href="{{ SITEURL }}/work/">View selected work <span aria-hidden="true">→</span></a>
+      <a class="button button-secondary" href="{{ SITEURL }}/contact/">Get in touch</a>
+    </div>
+  </div>
+  <div class="hero-social" aria-label="External profiles">
+    <a href="https://github.com/hjlarrea" rel="me">GitHub <span aria-hidden="true">↗</span></a>
+    <a href="https://linkedin.com/in/hjlarrea" rel="me">LinkedIn <span aria-hidden="true">↗</span></a>
+  </div>
+</section>
+
+<section class="section section-work">
+  <div class="shell">
+    <div class="section-heading">
+      <div><p class="eyebrow">Selected work</p><h2>Problems worth making simpler.</h2></div>
+      <a class="text-link" href="{{ SITEURL }}/work/">View all work <span aria-hidden="true">→</span></a>
+    </div>
+    <div class="project-grid">
+      {% for project in pages|project_pages(true) %}
+        {% include "includes/project-card.html" %}
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="section expertise-section">
+  <div class="shell split-heading">
+    <div><p class="eyebrow">Areas of expertise</p><h2>From product intent to technical reality.</h2></div>
+    <ol class="expertise-list">
+      <li><span>01</span> Technical product strategy</li>
+      <li><span>02</span> Platform engineering and developer experience</li>
+      <li><span>03</span> Infrastructure automation</li>
+      <li><span>04</span> Internal tools and workflow orchestration</li>
+      <li><span>05</span> Product discovery and simplification</li>
+      <li><span>06</span> AI-assisted product development</li>
+    </ol>
+  </div>
+</section>
+
+<section class="section profile-section">
+  <div class="shell profile-grid">
+    <p class="eyebrow">Profile</p>
+    <div>
+      <p class="statement">I work at the intersection of product strategy and infrastructure.</p>
+      <p class="profile-copy">My focus is turning complex technical processes into understandable, usable products that help teams move faster without hiding the operational reality beneath them.</p>
+      <a class="text-link" href="{{ SITEURL }}/about/">More about how I work <span aria-hidden="true">→</span></a>
+    </div>
+  </div>
+</section>
+
+<section class="section principles-section">
+  <div class="shell">
+    <p class="eyebrow">Working principles</p>
+    <div class="principles-grid">
+      <blockquote><span>01</span><p>Platforms should reduce cognitive load.</p></blockquote>
+      <blockquote><span>02</span><p>Internal tools are products and should be designed around real user journeys.</p></blockquote>
+      <blockquote><span>03</span><p>Automation needs visibility, feedback and escape hatches.</p></blockquote>
+      <blockquote><span>04</span><p>Technology should create leverage without creating unnecessary dependency.</p></blockquote>
+    </div>
+  </div>
+</section>
+
+<section class="section cololabs-section">
+  <div class="shell cololabs-grid">
+    <div>
+      <p class="eyebrow">From ColoLabs</p>
+      <h2>A separate space for curiosity.</h2>
+      <p>Articles, videos and experiments about technology, products and ideas.</p>
+      <p class="note">ColoLabs is the creative lab of Hernán Larrea.</p>
+    </div>
+    <div class="curated-list">
+      {% for item in COLOLABS_ITEMS[:3] %}
+      <article>
+        <div><span>{{ item.type }}</span><span>{{ item.date }}</span></div>
+        <h3><a href="{{ item.url }}">{{ item.title }}</a></h3>
+        <p>{{ item.summary }}</p>
+        <a class="text-link" href="{{ item.url }}">Read on ColoLabs <span aria-hidden="true">↗</span></a>
+      </article>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="contact-banner">
+  <div class="shell contact-banner-inner">
+    <p class="eyebrow">Start a conversation</p>
+    <h2>Interested in technical product strategy, platform engineering or developer experience? <em>Let’s talk.</em></h2>
+    <div class="actions">
+      <a class="button button-light" href="{{ SITEURL }}/contact/">Contact me <span aria-hidden="true">→</span></a>
+      <a class="mail-link" href="mailto:hernan@larrea.com.ar">hernan@larrea.com.ar</a>
+    </div>
+  </div>
+</section>
+{% endblock %}

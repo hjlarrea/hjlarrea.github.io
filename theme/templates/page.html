@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block body_class %}interior-page{% endblock %}
+{% block content %}
+<article class="shell page-layout">
+  <aside class="page-aside"><span>{{ page.title }}</span></aside>
+  <div class="prose">{{ page.content|safe }}</div>
+</article>
+{% endblock %}
+

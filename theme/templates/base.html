@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="{{ DEFAULT_LANG }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  {% set meta_title = page.title ~ ' — ' ~ SITENAME if page is defined else SITENAME ~ ' — ' ~ SITESUBTITLE %}
+  {% set meta_description = page.summary if page is defined and page.summary else SITE_DESCRIPTION %}
+  {% set canonical_url = SITEURL ~ '/' ~ page.url if page is defined else SITEURL ~ '/' %}
+  <title>{% block title %}{{ meta_title }}{% endblock %}</title>
+  <meta name="description" content="{{ meta_description|striptags }}">
+  <link rel="canonical" href="{{ canonical_url }}">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="{{ SITENAME }}">
+  <meta property="og:title" content="{{ meta_title }}">
+  <meta property="og:description" content="{{ meta_description|striptags }}">
+  <meta property="og:url" content="{{ canonical_url }}">
+  <meta property="og:image" content="{{ SITEURL }}/{{ SOCIAL_IMAGE }}">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{{ meta_title }}">
+  <meta name="twitter:description" content="{{ meta_description|striptags }}">
+  <meta name="twitter:image" content="{{ SITEURL }}/{{ SOCIAL_IMAGE }}">
+  <meta name="theme-color" content="#f4f1ea">
+  <link rel="icon" href="{{ SITEURL }}/{{ FAVICON }}" type="image/png">
+  <link rel="stylesheet" href="{{ SITEURL }}/theme/css/main.css">
+  {% block head %}{% endblock %}
+</head>
+<body class="{% block body_class %}{% endblock %}">
+  <a class="skip-link" href="#main-content">Skip to content</a>
+  {% include "includes/header.html" %}
+  <main id="main-content">
+    {% block content %}{% endblock %}
+  </main>
+  {% include "includes/footer.html" %}
+  <script src="{{ SITEURL }}/theme/js/main.js" defer></script>
+</body>
+</html>
+

@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block body_class %}work-page{% endblock %}
+{% block content %}
+<header class="shell interior-hero">
+  <p class="eyebrow">Portfolio</p>
+  <div class="interior-hero-grid">
+    <div class="prose intro-copy">{{ page.content|safe }}</div>
+    <p>Selected product and platform work, described through the problem, constraints and decisions rather than a technology inventory.</p>
+  </div>
+</header>
+<section class="shell work-group">
+  <div class="work-group-heading"><span>01</span><div><h2>Professional case studies</h2><p>Anonymized where needed to protect confidential work.</p></div></div>
+  <div class="project-grid">
+    {% for project in pages|project_pages %}
+      {% if project.category|string == 'Professional case study' %}{% include "includes/project-card.html" %}{% endif %}
+    {% endfor %}
+  </div>
+</section>
+<section class="shell work-group">
+  <div class="work-group-heading"><span>02</span><div><h2>Independent products</h2><p>Focused products built to explore useful, low-friction experiences.</p></div></div>
+  <div class="project-grid">
+    {% for project in pages|project_pages %}
+      {% if project.category|string == 'Independent product' %}{% include "includes/project-card.html" %}{% endif %}
+    {% endfor %}
+  </div>
+</section>
+{% endblock %}
+
